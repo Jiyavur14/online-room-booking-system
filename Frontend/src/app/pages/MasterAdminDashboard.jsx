@@ -40,7 +40,7 @@ export default function MasterAdminDashboard() {
   const fetchRevenue = async () => {
     try {
       const res = await fetch(
-        "http://localhost:5000/api/admin/master/dashboard",
+        "hhttps://online-room-booking-system.onrender.com/api/admin/master/dashboard",
         {
           headers: {
             Authorization: `Bearer ${currentUser.token}`,

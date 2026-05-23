@@ -32,7 +32,7 @@ export const AppProvider = ({ children }) => {
         : {};
 
       const response = await axios.get(
-        "http://localhost:5000/api/hotels",
+        "https://online-room-booking-system.onrender.com/api/hotels",
 
         config,
       );
@@ -50,7 +50,7 @@ export const AppProvider = ({ children }) => {
   const fetchMyBookings = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/bookings/my-bookings",
+        "https://online-room-booking-system.onrender.com/api/bookings/my-bookings",
         {
           headers: {
             Authorization: `Bearer ${currentUser.token}`,
@@ -67,10 +67,13 @@ export const AppProvider = ({ children }) => {
   };
 
   const register = async (email, password) => {
-    const res = await axios.post("http://localhost:5000/api/auth/register", {
-      email,
-      password,
-    });
+    const res = await axios.post(
+      "https://online-room-booking-system.onrender.com/api/auth/register",
+      {
+        email,
+        password,
+      },
+    );
 
     return res.data;
   };
@@ -78,7 +81,7 @@ export const AppProvider = ({ children }) => {
   const login = async (email, password) => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "https://online-room-booking-system.onrender.com/api/auth/login",
         {
           email,
           password,
@@ -114,7 +117,7 @@ export const AppProvider = ({ children }) => {
   const addBooking = async ({ roomId, checkIn, checkOut, guests }) => {
     try {
       await axios.post(
-        "http://localhost:5000/api/bookings",
+        "https://online-room-booking-system.onrender.com/api/bookings",
         { roomId, checkIn, checkOut, guests },
 
         {
@@ -141,7 +144,7 @@ export const AppProvider = ({ children }) => {
   const payBooking = async (bookingId) => {
     try {
       const response = await axios.patch(
-        `http://localhost:5000/api/bookings/${bookingId}/pay`,
+        `https://online-room-booking-system.onrender.com/api/bookings/${bookingId}/pay`,
         {},
         {
           headers: {
@@ -170,7 +173,7 @@ export const AppProvider = ({ children }) => {
   const cancelBooking = async (bookingId) => {
     try {
       const response = await axios.patch(
-        `http://localhost:5000/api/bookings/${bookingId}/cancel`,
+        `https://online-room-booking-system.onrender.com/api/bookings/${bookingId}/cancel`,
         {},
         {
           headers: {
@@ -204,7 +207,7 @@ export const AppProvider = ({ children }) => {
     try {
       // Call backend API
       const response = await axios.post(
-        "http://localhost:5000/api/hotels",
+        "https://online-room-booking-system.onrender.com/api/hotels",
         formData,
         {
           headers: {
@@ -228,7 +231,7 @@ export const AppProvider = ({ children }) => {
       /*const token = localStorage.getItem("token");*/
 
       const response = await axios.post(
-        "http://localhost:5000/api/rooms",
+        "https://online-room-booking-system.onrender.com/api/rooms",
         roomData,
         {
           headers: {
@@ -255,11 +258,14 @@ export const AppProvider = ({ children }) => {
       const user = JSON.parse(localStorage.getItem("user"));
       // if needed for admin routes
       const token = user?.token;
-      const response = await axios.get("http://localhost:5000/api/hotels", {
-        headers: {
-          Authorization: token ? `Bearer ${token}` : "",
+      const response = await axios.get(
+        "https://online-room-booking-system.onrender.com/api/hotels",
+        {
+          headers: {
+            Authorization: token ? `Bearer ${token}` : "",
+          },
         },
-      });
+      );
       return response.data;
     } catch (error) {
       console.error("Error fetching hotels:", error);
@@ -272,7 +278,7 @@ export const AppProvider = ({ children }) => {
       const user = JSON.parse(localStorage.getItem("user"));
       const token = user?.token;
       const response = await axios.get(
-        `http://localhost:5000/api/hotels/${id}`,
+        `https://online-room-booking-system.onrender.com/api/hotels/${id}`,
         {
           headers: {
             Authorization: token ? `Bearer ${token}` : "",
@@ -289,7 +295,7 @@ export const AppProvider = ({ children }) => {
   const checkRoomAvailability = async (hotelId, checkIn, checkOut) => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/bookings/availability",
+        "https://online-room-booking-system.onrender.com/api/bookings/availability",
 
         {
           params: { hotelId, checkIn, checkOut },
@@ -307,8 +313,8 @@ export const AppProvider = ({ children }) => {
   const getAdminDashboard = async (showAll = false) => {
     try {
       const url = showAll
-        ? "http://localhost:5000/api/admin/dashboard?all=true"
-        : "http://localhost:5000/api/admin/dashboard";
+        ? "https://online-room-booking-system.onrender.com/api/admin/dashboard?all=true"
+        : "https://online-room-booking-system.onrender.com/api/admin/dashboard";
 
       const response = await axios.get(url, {
         headers: {
@@ -326,7 +332,7 @@ export const AppProvider = ({ children }) => {
   const getAdminRooms = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/rooms/admin",
+        "https://online-room-booking-system.onrender.com/api/rooms/admin",
 
         {
           headers: {
@@ -346,7 +352,7 @@ export const AppProvider = ({ children }) => {
   const toggleRoomStatus = async (roomId) => {
     try {
       await axios.patch(
-        `http://localhost:5000/api/rooms/${roomId}/toggle-status`,
+        `https://online-room-booking-system.onrender.com/api/rooms/${roomId}/toggle-status`,
 
         {},
 
@@ -380,7 +386,7 @@ export const AppProvider = ({ children }) => {
 
   const getAllUsers = async () => {
     const res = await axios.get(
-      "http://localhost:5000/api/admin/users",
+      "https://online-room-booking-system.onrender.com/api/admin/users",
 
       {
         headers: { Authorization: `Bearer ${currentUser.token}` },
@@ -392,7 +398,7 @@ export const AppProvider = ({ children }) => {
 
   const promoteUser = async (id) => {
     await axios.patch(
-      `http://localhost:5000/api/admin/promote/${id}`,
+      `https://online-room-booking-system.onrender.com/api/admin/promote/${id}`,
       {},
 
       { headers: { Authorization: `Bearer ${currentUser.token}` } },
@@ -401,7 +407,7 @@ export const AppProvider = ({ children }) => {
 
   const demoteUser = async (id) => {
     await axios.patch(
-      `http://localhost:5000/api/admin/demote/${id}`,
+      `https://online-room-booking-system.onrender.com/api/admin/demote/${id}`,
       {},
 
       { headers: { Authorization: `Bearer ${currentUser.token}` } },
@@ -410,11 +416,14 @@ export const AppProvider = ({ children }) => {
 
   const deleteUser = async (userId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/admin/users/${userId}`, {
-        headers: {
-          Authorization: `Bearer ${currentUser.token}`,
+      await axios.delete(
+        `https://online-room-booking-system.onrender.com/api/admin/users/${userId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${currentUser.token}`,
+          },
         },
-      });
+      );
     } catch (error) {
       console.error("Error deleting user:", error);
     }
@@ -422,7 +431,7 @@ export const AppProvider = ({ children }) => {
 
   const toggleHotelStatus = async (id) => {
     await axios.patch(
-      `http://localhost:5000/api/hotels/toggle/${id}`,
+      `https://online-room-booking-system.onrender.com/api/hotels/toggle/${id}`,
       {},
 
       { headers: { Authorization: `Bearer ${currentUser.token}` } },
@@ -501,11 +510,14 @@ export const AppProvider = ({ children }) => {
 
   const deleteHotel = async (hotelId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/hotels/${hotelId}`, {
-        headers: {
-          Authorization: `Bearer ${currentUser.token}`,
+      await axios.delete(
+        `https://online-room-booking-system.onrender.com/api/hotels/${hotelId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${currentUser.token}`,
+          },
         },
-      });
+      );
 
       // Remove from UI after successful deletion
       setHotels((prev) => prev.filter((h) => h._id !== hotelId));

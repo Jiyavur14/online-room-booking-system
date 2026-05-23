@@ -53,7 +53,7 @@ export default function MyBookingsPage() {
   const handlePayment = async (booking) => {
     try {
       axios.put(
-        `http://localhost:5000/api/bookings/${booking._id}/confirm`,
+        `https://online-room-booking-system.onrender.com/api/bookings/${booking._id}/confirm`,
         {},
         {
           headers: {
@@ -110,7 +110,7 @@ export default function MyBookingsPage() {
                     <img
                       src={
                         booking.hotel?.images?.[0]
-                          ? `http://localhost:5000/${booking.hotel.images[0]}`
+                          ? `https://online-room-booking-system.onrender.com/${booking.hotel.images[0]}`
                           : ""
                       }
                       alt={booking.hotel?.name}

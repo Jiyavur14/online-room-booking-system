@@ -272,7 +272,7 @@ export default function HotelListingPage() {
                     <div
                       className="w-full md:w-64 h-48 bg-cover bg-center rounded-lg flex-shrink-0"
                       style={{
-                        backgroundImage: `url(http://localhost:5000/${hotel.images[0]})`,
+                        backgroundImage: `url(https://online-room-booking-system.onrender.com/${hotel.images[0]})`,
                       }}
                     />
                     <div className="flex-1">

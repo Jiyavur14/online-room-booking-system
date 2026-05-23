@@ -168,7 +168,7 @@ export default function HomePage() {
               >
                <div
                     className="h-48 bg-cover bg-center rounded-t-lg -mx-6 -mt-6 mb-4"
-                   style={{backgroundImage: hotel.images ? `url(http://localhost:5000/${hotel.images})`: `url('/placeholder.jpg')`}}
+                   style={{backgroundImage: hotel.images ? `url(https://online-room-booking-system.onrender.com/${hotel.images})`: `url('/placeholder.jpg')`}}
               />
                 <h3 className="text-xl font-semibold mb-2">{hotel.name}</h3>
                 <div className="flex items-center gap-2 text-text-secondary mb-2">
@@ -237,7 +237,7 @@ export default function HomePage() {
                   setNewsletterError(false);
 
           try {
-              await axios.post("http://localhost:5000/api/newsletter", {
+              await axios.post("https://online-room-booking-system.onrender.com/api/newsletter", {
                 email: newsletterEmail,
                     });
 

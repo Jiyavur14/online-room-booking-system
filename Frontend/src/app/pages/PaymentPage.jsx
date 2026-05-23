@@ -63,7 +63,7 @@ export default function PaymentPage() {
 
     try {
       const response = await axios.patch(
-        `http://localhost:5000/api/bookings/${booking._id}/pay`,
+        `https://online-room-booking-system.onrender.com/api/bookings/${booking._id}/pay`,
         {},
 
         {
@@ -346,7 +346,7 @@ export default function PaymentPage() {
                   className="h-32 bg-cover bg-center rounded-lg mb-4"
                   style={{
                     backgroundImage: booking.hotel?.images?.[0]
-                      ? `url(http://localhost:5000/${booking.hotel.images[0]})`
+                      ? `url(https://online-room-booking-system.onrender.com/${booking.hotel.images[0]})`
                       : "none",
                   }}
                 />

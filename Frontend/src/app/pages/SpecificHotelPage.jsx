@@ -144,7 +144,7 @@ export default function SpecificHotelPage() {
       <div
         className="h-96 bg-cover bg-center"
         style={{
-          backgroundImage: `url(http://localhost:5000/${hotel.images[0]})`,
+          backgroundImage: `url(https://online-room-booking-system.onrender.com/${hotel.images[0]})`,
         }}
       />
 

@@ -24,7 +24,7 @@ export default function ContactPage() {
 
   try {
 
-    const res = await fetch("http://localhost:5000/api/contact", {
+    const res = await fetch("https://online-room-booking-system.onrender.com/api/contact", {
 
       method: "POST",
 
